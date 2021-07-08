@@ -8,7 +8,7 @@ sudo systemctl unmask mongodb
 
 # Create a mongo doc
 ---------------------------------------
-mongo
+mongo       # to connect to mongodb
 
 use school;
 db.students.insert({ "studentno":"1","firstname":"varun","lastname":"goyal"})
@@ -16,7 +16,15 @@ db.students.insert({ "studentno":"2","firstname":"tarun","lastname":"sing","scho
 db.students.insert([{ "studentno":"3","firstname":"arun","lastname":"pal","school":"Modern"},
 { "studentno":"4","firstname":"sachin","lastname":"tiwari","school":"dps"},
 { "studentno":"5","firstname":"rahul","lastname":"negi","school":"nps"}])
-db.students..find()
+
+db.students.count()         # to find the number of records
+db.students.find()
+
+
+quit()          # to disconnect from mongodb
+
+# after quitting, again change the bindip and put the dns bindip on. Then restard mongodb and you're done.
+sudo vi mongod.conf
 
 # Make this remote MongoDB instance accessible to your local machine
 ---------------------------------------
@@ -25,6 +33,9 @@ cd etc/
 sudo vi mongod.conf
 # change bindIp to the public dns name
 sudo service mongod restart
+
+# to go to mongodb, if it fails, update mongod.conf again and restart mongodb
+mongo
 
 
 # Install a MongoDB client software in your local machine (Optional)
