@@ -33,8 +33,6 @@ spark_sql_demo:
         array_contains(UniqueTransactionDescriptions, 'Movies') as WentToMovies
     from
         agg_finances
-
-
   case_when_demo: >
     select
         company,
