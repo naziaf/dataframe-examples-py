@@ -40,7 +40,10 @@ if __name__ == '__main__':
     emp_df.join(role_df, [emp_df["id"] == role_df["id"]], "left_anti").show()
     emp_df.join(role_df, [emp_df["id"] == role_df["id"]], "full").show()
 
-    # cross join
+    print('cross join with condition')
     emp_df.join(role_df, [emp_df["id"] == role_df["id"]], "cross").show()
+
+    print('cross join with condition')
+    emp_df.join(role_df, "cross").show(100)
 
 # spark-submit --packages "org.apache.hadoop:hadoop-aws:2.7.4" dataframe/curation/dsl/joins_demo.py
