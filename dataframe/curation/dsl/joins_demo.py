@@ -43,6 +43,8 @@ if __name__ == '__main__':
     print('cross join with condition')
     emp_df.join(role_df, [emp_df["id"] == role_df["id"]], "cross").show()
 
+    spark.conf.set("spark.sql.crossJoin.enabled", true)
+
     print('cross join with condition')
     emp_df.join(role_df, "cross").show(100)
 
